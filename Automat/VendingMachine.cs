@@ -6,13 +6,16 @@ namespace Automat
 {
     public class VendingMachine
     {
+        public int balance = 125;
         private Administrator admin { get; set; }
         private Customer customer { get; set; }
-        private Product product { get; set; }
+
         public List<Product> productsList = new List<Product>();
+        public List<Product> pickedProducts = new List<Product>();
+        public List<string> logsList = new List<string>();
         public VendingMachine()
         {
-            admin = new Administrator();
+            admin = new Administrator(this);
             customer = new Customer(this);
 
             Product cocaCola = new Product("Coca-Cola", 20,7);
@@ -32,8 +35,9 @@ namespace Automat
         {
             return customer.DisplayProducts();
         }
-        public void PickedItem()
+        public string PickedItem(int index, int money)
         {
+            return customer.ProductPick(index,money);
 
         }
 
@@ -44,26 +48,27 @@ namespace Automat
         {
             return admin.AdminPassword(login);
         }
-        public void AddNewProduct()
+        public void AddNewProduct(string productName, string name, int price, int amount)
         {
+            admin.AddNewProduct(); //Fix
 
         }
-        public void FillStock()
+        public void FillStock(int amount, int index)
         {
-
+            admin.FillStock(amount, index); //Fix
         }
-        public void ChangePrice()
+        public void ChangePrice(int index, int price)
         {
-
+            admin.ChangePrice(price, index); //Fix
         }
 
-        public void FillBalance()
+        public string FillBalance(int balance)
         {
-
+            return admin.FillBalance(balance);
         }
-        public void Logs()
+        public string Logs()
         {
-
+            return admin.Logs();
         }
         
     }

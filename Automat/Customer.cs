@@ -13,16 +13,26 @@ namespace Automat
         }
         public string DisplayProducts()
         {
+            int i = 0;
             string products = "";
             foreach (Product product in VendingMachine.productsList)
             {
-                products += "\n"+product.Name + " "+ product.Price +" kr";
+                i++;
+                products += "\n"+i+". "+product.Name + " "+ product.Price +" kr";
             }
             return products;
         }
-        public void ProductPick(int balance)
+        public string ProductPick(int index, int money)
         {
-         
+            if (VendingMachine.productsList[index - 1].Price<money)
+            {
+                int rest = money-VendingMachine.productsList[index-1].Price;
+                //stock decrement
+                VendingMachine.logsList.Add("time"+VendingMachine.productsList[index - 1].Name+ VendingMachine.productsList[index - 1].Price);
+                return "you have "+rest+" kr left";
+
+            }
+            return "Not enough money";
         }
     }
 }

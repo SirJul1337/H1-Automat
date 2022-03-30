@@ -7,12 +7,11 @@ namespace Automat
     {
 
         static VendingMachine vendingMachine {get;set;}
-        static Administrator administrator {get;set;}
         static void Main(string[] args)
         {
             vendingMachine = new VendingMachine();
             int menu = 0;
-            int admin = 0;
+            int admin = 8;
 
 
 
@@ -40,9 +39,14 @@ namespace Automat
                         );
                         menu = int.Parse(Console.ReadLine());
                         break;
-                    case 1:
+                    case 1: //Order Item
                         Console.Clear();
                         Console.WriteLine(vendingMachine.DisplayProducts());
+                        Console.WriteLine("\nPut in your money");
+                        int money = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter the number of the product you want");
+                        int index = int.Parse(Console.ReadLine());
+                        Console.WriteLine(vendingMachine.PickedItem(index, money)); 
                         Console.WriteLine("\n0. Back to menu " + "3. Exit Program");
                         menu = int.Parse(Console.ReadLine());
                         break;
@@ -50,10 +54,10 @@ namespace Automat
                         Console.Clear();
                         Console.WriteLine("Put in the admin password");
                         string login = Console.ReadLine();
-                        if (administrator.AdminPassword(login))
+                        if (vendingMachine.AdminPassword(login))
                         {
                             menu = 3;
-                            admin = 1;
+                            admin = 8;
                             break;
                         }
                         else
@@ -65,7 +69,7 @@ namespace Automat
                         }
 
                 }
-            } while (menu != 3 || admin != 1);
+            } while (menu != 3 || admin != 8);
 
 
             //Admin menu to fill, change products and see logs
@@ -73,7 +77,7 @@ namespace Automat
             {
                 switch (admin)
                 {
-                    case 1:
+                    case 8:
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.Clear();
                         Console.WriteLine
@@ -92,23 +96,29 @@ namespace Automat
                         );
                         admin = int.Parse(Console.ReadLine());
                         break;
+                    case 1:
+                        break;
                     case 2:
                         Console.Clear();
-                        Console.WriteLine("\n0. Back to menu " + "5. Exit Program");
+                        Console.WriteLine("\n0. Back to menu " + "6. Exit Program");
                         admin = int.Parse(Console.ReadLine());
                         break;
                     case 3:
                         Console.Clear();
-                        Console.WriteLine("\n0. Back to menu " + "5. Exit Program");
+                        Console.WriteLine("\n0. Back to menu " + "6. Exit Program");
                         admin= int.Parse(Console.ReadLine());
                         break;
                     case 4:
                         Console.Clear();
-                        Console.WriteLine("\n0. Back to menu " + "5. Exit Program");
+                        Console.WriteLine("How much cash do you want to add to the balance? ");
+                        int balance = int.Parse(Console.ReadLine());
+                        Console.WriteLine(vendingMachine.FillBalance(balance));
+                        Console.WriteLine("\n0. Back to menu " + "6. Exit Program");
                         admin = int.Parse(Console.ReadLine());
                         break;
                     case 5:
                         Console.Clear();
+                        Console.WriteLine(vendingMachine.Logs());
                         break;
                     case 6:
                         menu = 0;

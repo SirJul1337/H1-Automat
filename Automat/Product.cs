@@ -9,6 +9,10 @@ namespace Automat
         private string name;
         private int price;
         private int amount;
+        public Product()
+        {
+
+        }
         public Product(string name,int price,int amount)
         {
             Name = name;
