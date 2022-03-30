@@ -25,7 +25,43 @@ namespace Automat
             productsList.Add(snickers);
             productsList.Add(twix);
         }
-        public void DisplayProducts()
+
+
+        //Customer
+        public string DisplayProducts()
+        {
+            return customer.DisplayProducts();
+        }
+        public void PickedItem()
+        {
+
+        }
+
+
+
+        //Admin
+        public bool AdminPassword(string login)
+        {
+            return admin.AdminPassword(login);
+        }
+        public void AddNewProduct()
+        {
+
+        }
+        public void FillStock()
+        {
+
+        }
+        public void ChangePrice()
+        {
+
+        }
+
+        public void FillBalance()
+        {
+
+        }
+        public void Logs()
         {
 
         }

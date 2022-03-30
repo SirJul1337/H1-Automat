@@ -13,11 +13,10 @@ namespace Automat
         }
         public string DisplayProducts()
         {
-            VendingMachine.DisplayProducts();
             string products = "";
             foreach (Product product in VendingMachine.productsList)
             {
-                products += product.Name + ""+ product.Price;
+                products += "\n"+product.Name + " "+ product.Price +" kr";
             }
             return products;
         }

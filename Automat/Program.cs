@@ -7,7 +7,6 @@ namespace Automat
     {
 
         static VendingMachine vendingMachine {get;set;}
-        static Customer customer {get;set;}
         static Administrator administrator {get;set;}
         static void Main(string[] args)
         {
@@ -43,15 +42,15 @@ namespace Automat
                         break;
                     case 1:
                         Console.Clear();
-                        Console.WriteLine(customer.DisplayProducts());
+                        Console.WriteLine(vendingMachine.DisplayProducts());
                         Console.WriteLine("\n0. Back to menu " + "3. Exit Program");
                         menu = int.Parse(Console.ReadLine());
                         break;
                     case 2:
                         Console.Clear();
                         Console.WriteLine("Put in the admin password");
-                        string guess = Console.ReadLine();
-                        if (administrator.AdminPassword(guess))
+                        string login = Console.ReadLine();
+                        if (administrator.AdminPassword(login))
                         {
                             menu = 3;
                             admin = 1;
