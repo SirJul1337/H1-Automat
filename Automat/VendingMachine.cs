@@ -19,7 +19,7 @@ namespace Automat
             customer = new Customer(this);
 
             Product cocaCola = new Product("Coca-Cola", 20,7);
-            Product pepsiMax = new Product("Pepsi Max", 18, 10);
+            Product pepsiMax = new Product("Pepsi Max", 18, 0);
             Product snickers = new Product("Snickers", 6, 15);
             Product twix = new Product("Twix", 5, 3);
 
@@ -39,11 +39,15 @@ namespace Automat
             string products = "";
             foreach (Product product in productsList)
             {
+                i++;
                 if(product.Amount != 0)//If the product amount isnt empty, then show the item
                 {
-                    i++;
                     products += i + ". " + product.Name + " " + product.Price + " kr\n" ;
 
+                }
+                else
+                {
+                    products += i + ". " + product.Name + " Is empty\n";
                 }
             }
             return products;

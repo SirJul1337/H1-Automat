@@ -19,16 +19,20 @@ namespace Automat
         //Product pick, substracts price of item, from users money
         public string ProductPick(int index, int money)
         {
-            if (productList[index - 1].Price<money)
+            if (productList[index-1].Amount != 0)
             {
-                int rest = money-VendingMachine.productsList[index-1].Price;//Makes a variable with the new amount of money the customer has left
-                VendingMachine.balance +=productList[index-1].Price; //The money will be put in the vending machine here
-                //stock decrement
-                VendingMachine.logsList.Add(now.ToString("f") +" "+productList[index - 1].Name+" "+ productList[index - 1].Price);//Logs to the logs here
-                return "you have "+rest+" kr left";
+                if (productList[index - 1].Price<money)
+                {
+                    int rest = money-VendingMachine.productsList[index-1].Price;//Makes a variable with the new amount of money the customer has left
+                    VendingMachine.balance +=productList[index-1].Price; //The money will be put in the vending machine here
+                    //stock decrement
+                    VendingMachine.logsList.Add(now.ToString("f") +" "+productList[index - 1].Name+" "+ productList[index - 1].Price);//Logs to the logs here
+                    return "you have "+rest+" kr left";
 
+                }
+                return "Not enough money";
             }
-            return "Not enough money";
+            return "Product is empty cant be picked";
         }
     }
 }
