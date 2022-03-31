@@ -13,6 +13,7 @@ namespace Automat
         {
 
         }
+        //The constructor to make a product in the vending machine
         public Product(string name,int price,int amount)
         {
             Name = name;

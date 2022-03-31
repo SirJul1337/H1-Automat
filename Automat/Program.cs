@@ -26,7 +26,7 @@ namespace Automat
                 {
                     switch (menu)
                     {
-                        case 0:
+                        case 0://Main menu
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.Clear();
                             Console.WriteLine
@@ -58,7 +58,7 @@ namespace Automat
                             Console.WriteLine("\n0. Back to menu " + "3. Exit Program");
                             menu = int.Parse(Console.ReadLine());
                             break;
-                        case 2:
+                        case 2://Admin menu
                             Console.Clear();
                             Console.WriteLine("Put in the admin password");
                             string login = Console.ReadLine();
@@ -91,7 +91,7 @@ namespace Automat
                 {
                     switch (admin)
                     {
-                        case 0:
+                        case 0://Admin menu
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.Clear();
                             Console.WriteLine
@@ -109,7 +109,7 @@ namespace Automat
                             );
                             admin = int.Parse(Console.ReadLine());
                             break;
-                        case 1:
+                        case 1://Fill stock menu
                             Console.Clear();
                             Console.WriteLine(vendingMachine.DisplayProductsAmount());
                             Console.WriteLine("What item do you want to restock? ");
@@ -120,7 +120,7 @@ namespace Automat
                             Console.WriteLine("\n0. Back to menu " + "6. Exit Program");
                             admin = int.Parse(Console.ReadLine());
                             break;
-                        case 2:
+                        case 2://Change price menu
                             Console.Clear();
                             Console.WriteLine(vendingMachine.DisplayProducts()); 
                             Console.WriteLine("What item do you want to change the price on? ");
@@ -131,7 +131,7 @@ namespace Automat
                             Console.WriteLine("\n0. Back to menu " + "6. Exit Program");
                             admin= int.Parse(Console.ReadLine());
                             break;
-                        case 3:
+                        case 3://See balance menu
                             Console.Clear();
                             Console.WriteLine(vendingMachine.SeeBalance());
                             Console.WriteLine("Do you want to withdraw the money from the vending machine? y/n");
@@ -140,7 +140,7 @@ namespace Automat
                             Console.WriteLine("\n0. Back to menu " + "6. Exit Program");
                             admin = int.Parse(Console.ReadLine());
                             break;
-                        case 4:
+                        case 4://See logs menu
                             Console.Clear();
                             Console.WriteLine(vendingMachine.Logs());
                             Console.WriteLine("\n0. Back to menu " + "6. Exit Program");

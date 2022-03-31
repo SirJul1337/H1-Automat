@@ -31,17 +31,26 @@ namespace Automat
 
 
         //Customer
+
+        //Method to display products
         public string DisplayProducts()
         {
             int i = 0;
             string products = "";
             foreach (Product product in productsList)
             {
-                i++;
-                products += i + ". " + product.Name + " " + product.Price + " kr\n" ;
+                if(product.Amount != 0)//If the product amount isnt empty, then show the item
+                {
+                    i++;
+                    products += i + ". " + product.Name + " " + product.Price + " kr\n" ;
+
+                }
             }
             return products;
         }
+
+
+        //method to display the amount of the product there is left
         public string DisplayProductsAmount()
         {
             int i = 0;
@@ -53,6 +62,8 @@ namespace Automat
             }
             return products;
         }
+
+        //Method that points to customer productpick
         public string PickedItem(int index, int money)
         {
             return customer.ProductPick(index,money);
@@ -67,19 +78,25 @@ namespace Automat
             return admin.AdminPassword(login);
         }
 
+        //Method to call admin FillStock()
         public string FillStock(int amount, int index)
         {
             return admin.FillStock(amount, index); //Fix
         }
+
+        //Method to call admin.ChangePrice()
         public string ChangePrice(int index, int price)
         {
             return admin.ChangePrice(index, price); //Fix
         }
 
+        //Method to call admin.Balance()
         public string SeeBalance()
         {
             return admin.SeeBalance();
         }
+
+        //Method if they want to withdraw, admin.WithdrawBalance() will be called
         public string WithdrawBalance(string withdraw)
         {
             if(withdraw.ToLower() == "y")
@@ -88,6 +105,8 @@ namespace Automat
             }
             return "";
         }
+
+        //method to call admin.logs()
         public string Logs()
         {
             return admin.Logs();
