@@ -33,7 +33,25 @@ namespace Automat
         //Customer
         public string DisplayProducts()
         {
-            return customer.DisplayProducts();
+            int i = 0;
+            string products = "";
+            foreach (Product product in productsList)
+            {
+                i++;
+                products += i + ". " + product.Name + " " + product.Price + " kr\n" ;
+            }
+            return products;
+        }
+        public string DisplayProductsAmount()
+        {
+            int i = 0;
+            string products = "";
+            foreach (Product product in productsList)
+            {
+                i++;
+                products += i + ". " + product.Name + " " + product.Amount + " stk\n";
+            }
+            return products;
         }
         public string PickedItem(int index, int money)
         {
@@ -48,23 +66,27 @@ namespace Automat
         {
             return admin.AdminPassword(login);
         }
-        public void AddNewProduct(string productName, string name, int price, int amount)
-        {
-            admin.AddNewProduct(); //Fix
 
-        }
-        public void FillStock(int amount, int index)
+        public string FillStock(int amount, int index)
         {
-            admin.FillStock(amount, index); //Fix
+            return admin.FillStock(amount, index); //Fix
         }
         public string ChangePrice(int index, int price)
         {
             return admin.ChangePrice(index, price); //Fix
         }
 
-        public string FillBalance(int balance)
+        public string SeeBalance()
         {
-            return admin.FillBalance(balance);
+            return admin.SeeBalance();
+        }
+        public string WithdrawBalance(string withdraw)
+        {
+            if(withdraw.ToLower() == "y")
+            {
+                return admin.WithdrawBalance();
+            }
+            return "";
         }
         public string Logs()
         {

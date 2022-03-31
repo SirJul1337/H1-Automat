@@ -8,37 +8,24 @@ namespace Automat
     {
         private VendingMachine VendingMachine { get; set; } 
         private List<Product> productList { get; set; }
+        private int adminBalance;
         public Administrator(VendingMachine vm)
         {
             VendingMachine = vm;
             productList = VendingMachine.productsList;
         }
 
-        public void AddNewProduct()
-        {
-            
-        }
-        public string DisplayEmptySlots()
-        {
-            foreach(Product product in productList)
-            {
-                if(product.Name == string.Empty)
-                {
-                    string emptySlot = "";
-                }
-            }
-            return "";
-        }
-        public string ChangePrice(int index, int price)
-        {
-            VendingMachine.productsList[index - 1].Price = price;
-            return (VendingMachine.productsList[index-1].Name + " got a new price: " + price);
-            
-        }
         public string FillStock(int amount, int index)
         {
-            VendingMachine.productsList[index-1].Amount = amount; 
-            return ("The total amount on" + VendingMachine.productsList[index-1].Name + "is now" + amount);
+            productList[index-1].Amount = amount; 
+            return ("\nThe total amount on " + productList[index-1].Name + " is now " + amount);
+        }
+
+        public string ChangePrice(int index, int price)
+        {
+            productList[index - 1].Price = price;
+            return (productList[index-1].Name + " got a new price: " + price);
+            
         }
         public bool AdminPassword(string guess)
         {
@@ -48,10 +35,16 @@ namespace Automat
             }
             return false;
         }
-        public string FillBalance(int balance)
+        public string SeeBalance()
         {
-            VendingMachine.balance += balance;
-            return balance+ " kr has been added, total balance in VendingMachine is: "+VendingMachine.balance ;
+
+            return "There is a total of: "+VendingMachine.balance+" kr in the vending mahchine" ;
+        }
+        public string WithdrawBalance()
+        {
+            adminBalance = VendingMachine.balance;
+            VendingMachine.balance = 0;
+            return "Vending machine is now empty, you withdrawed "+adminBalance+" kr";
         }
         public string Logs()
         {
