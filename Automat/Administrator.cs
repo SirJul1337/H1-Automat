@@ -7,9 +7,11 @@ namespace Automat
     public class Administrator
     {
         private VendingMachine VendingMachine { get; set; } 
+        private List<Product> productList { get; set; }
         public Administrator(VendingMachine vm)
         {
             VendingMachine = vm;
+            productList = VendingMachine.productsList;
         }
 
         public void AddNewProduct()
@@ -18,7 +20,7 @@ namespace Automat
         }
         public string DisplayEmptySlots()
         {
-            foreach(Product product in VendingMachine.productsList)
+            foreach(Product product in productList)
             {
                 if(product.Name == string.Empty)
                 {

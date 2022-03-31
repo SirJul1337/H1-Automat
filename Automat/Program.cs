@@ -17,6 +17,7 @@ namespace Automat
 
 
 
+
             
             //Main menu for the vending machine
             do
