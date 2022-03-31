@@ -57,9 +57,9 @@ namespace Automat
         {
             admin.FillStock(amount, index); //Fix
         }
-        public void ChangePrice(int index, int price)
+        public string ChangePrice(int index, int price)
         {
-            admin.ChangePrice(price, index); //Fix
+            return admin.ChangePrice(index, price); //Fix
         }
 
         public string FillBalance(int balance)

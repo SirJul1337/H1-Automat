@@ -16,10 +16,21 @@ namespace Automat
         {
             
         }
+        public string DisplayEmptySlots()
+        {
+            foreach(Product product in VendingMachine.productsList)
+            {
+                if(product.Name == string.Empty)
+                {
+                    string emptySlot = "";
+                }
+            }
+            return "";
+        }
         public string ChangePrice(int index, int price)
         {
             VendingMachine.productsList[index - 1].Price = price;
-            return (VendingMachine.productsList[index-1].Name + "got a new price: " + price);
+            return (VendingMachine.productsList[index-1].Name + " got a new price: " + price);
             
         }
         public string FillStock(int amount, int index)

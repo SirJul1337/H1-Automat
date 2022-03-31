@@ -105,6 +105,11 @@ namespace Automat
                         break;
                     case 3:
                         Console.Clear();
+                        Console.WriteLine("What item do you want to change the price on? ");
+                        int index = int.Parse(Console.ReadLine());
+                        Console.WriteLine("What should the price on the item be? ");
+                        int price = int.Parse(Console.ReadLine());
+                        Console.WriteLine(vendingMachine.ChangePrice(index, price)); 
                         Console.WriteLine("\n0. Back to menu " + "6. Exit Program");
                         admin= int.Parse(Console.ReadLine());
                         break;
