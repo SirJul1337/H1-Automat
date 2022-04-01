@@ -11,7 +11,6 @@ namespace Automat
         private Customer customer { get; set; }
 
         public List<Product> productsList = new List<Product>();
-        public List<Product> pickedProducts = new List<Product>();
         public List<string> logsList = new List<string>();
         public VendingMachine()
         {
