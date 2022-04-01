@@ -27,7 +27,7 @@ namespace Automat
                     VendingMachine.balance +=productList[index-1].Price; //The money will be put in the vending machine here
                     //stock decrement
                     VendingMachine.logsList.Add(now.ToString("f") +" "+productList[index - 1].Name+" "+ productList[index - 1].Price);//Logs to the logs here
-                    return "you have "+rest+" kr left";
+                    return "you got your "+productList[index-1].Name+", you got "+rest+" kr return";
 
                 }
                 return "Not enough money";
